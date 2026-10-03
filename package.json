@@ -1,0 +1,25 @@
+{
+  "name": "skyvelle-jets",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private jet charter website for the US market: static, animated, SEO-ready. White-label by editing tools/build/config.js.",
+  "scripts": {
+    "start": "node tools/serve.js",
+    "dev": "node tools/serve.js",
+    "build": "node tools/build/build.js",
+    "build:dev": "node tools/build/build.js --dev",
+    "build:file": "node tools/build/build.js --file",
+    "build:staging": "STAGING=1 node tools/build/build.js",
+    "images": "node tools/fetch-images.js",
+    "check": "node tools/check-css.js dist"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.34.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
