@@ -1,0 +1,114 @@
+/* ==========================================================================
+   50 PAGES: articles, legal, FAQ page, sitemap, 404, footer, cursor, transitions
+   ========================================================================== */
+/* ---------- long-form text ---------- */
+.prose{font-size:1.07rem;line-height:1.78;color:var(--fg)}
+.prose > * + *{margin-top:1.2em}
+.prose h2{margin-top:2.3em;font-family:var(--display);font-weight:500;font-size:clamp(1.95rem,1.5vw + 1.3rem,2.75rem);line-height:1.1;letter-spacing:-.01em;scroll-margin-top:calc(var(--hdr) + 24px)}
+.prose h3{margin-top:1.9em;font-size:1.3rem;font-weight:700;line-height:1.3}
+.prose p{color:#2b3449}
+.prose strong{color:var(--fg)}
+.prose .lede{max-width:none;margin-bottom:.4em;font-size:clamp(1.18rem,.5vw + 1.05rem,1.4rem);line-height:1.6;color:#2b3449}
+.prose ul:not(.check-list){list-style:disc;padding-left:1.35em}
+.prose ol{list-style:decimal;padding-left:1.35em}
+.prose li + li{margin-top:.55em}
+.prose li::marker{color:var(--gold-text)}
+.prose .table-wrap{margin-block:1.9em}
+.prose .check-list{margin-block:1.2em}
+.prose--legal{font-size:1rem;line-height:1.75}
+.prose--legal h2{margin-top:2em;font-size:1.7rem}
+.prose--legal > :first-child{margin-top:0}
+
+/* ---------- article layout ---------- */
+.article-grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:start}
+.article{max-width:780px}
+.toc{position:sticky;top:calc(var(--hdr) + 28px);display:grid;gap:16px}
+.toc ol{display:grid;border-left:1px solid var(--line)}
+.toc a{display:block;margin-left:-1px;padding:.5em 0 .5em 16px;font-size:.88rem;line-height:1.4;color:var(--muted);border-left:2px solid transparent;transition:color .3s,border-color .3s}
+.toc a:hover{color:var(--fg)}
+.toc a.is-active{color:var(--fg);font-weight:700;border-left-color:var(--gold)}
+.byline{margin-bottom:1.8rem;padding-bottom:1.3rem;border-bottom:1px solid var(--line);font-size:.85rem;font-weight:600;color:var(--muted)}
+.inline-cta{--ghost-line:rgba(255,255,255,.34);--ghost-fg:#fff;margin-top:3rem;padding:clamp(26px,3.4vw,46px);border-radius:var(--r-lg);color:#fff;background:linear-gradient(145deg,#1d2d50,#0b1426);border:1px solid rgba(232,207,147,.28)}
+.inline-cta h2{margin:0 0 .6rem;font-size:clamp(1.8rem,1.5vw + 1.2rem,2.5rem);color:#fff}
+.inline-cta p{margin-bottom:1.4rem;color:rgba(255,255,255,.78)}
+@media(max-width:960px){
+  .article-grid{grid-template-columns:1fr}
+  .toc{position:static;order:-1;padding:20px 22px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+  .toc .side-card{display:none}
+}
+
+/* ---------- legal and sitemap ---------- */
+.legal-head{padding:clamp(40px,5vw,76px) 0 clamp(30px,3.4vw,50px);background:var(--paper);border-bottom:1px solid rgba(20,27,45,.1);color:#141b2d;--muted:#566177}
+.legal-head .h1{font-size:clamp(2.4rem,3.6vw + .6rem,4.4rem);margin-top:.4rem}
+.legal-head .lede{margin-top:1rem}
+.legal-head .fine{margin-top:1rem}
+.sitemap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:clamp(28px,4vw,56px)}
+.sitemap .h3{margin-bottom:1rem}
+.sitemap-list{display:grid;gap:.55rem;margin-bottom:2.2rem}
+.sitemap-list a{font-size:.95rem;text-decoration:underline;text-decoration-color:rgba(200,164,92,.5);text-underline-offset:.2em;transition:color .3s}
+.sitemap-list a:hover{color:var(--gold-text)}
+
+/* ---------- FAQ page ---------- */
+.faq-page{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:start}
+.faq-nav{position:sticky;top:calc(var(--hdr) + 28px);display:grid;gap:14px}
+.faq-nav ul{display:grid}
+.faq-nav li a{display:block;padding:.75em 0;font-weight:700;border-bottom:1px solid var(--line);transition:color .3s,padding .4s var(--ease)}
+.faq-nav li a:hover{color:var(--gold-text);padding-left:8px}
+.faq-groups{display:grid;gap:clamp(44px,5vw,76px)}
+.faq-group{scroll-margin-top:calc(var(--hdr) + 24px)}
+.faq-group > h2{margin-bottom:1.1rem}
+@media(max-width:900px){.faq-page{grid-template-columns:1fr}.faq-nav{position:static}.faq-nav ul{display:flex;flex-wrap:wrap;gap:8px}.faq-nav li a{padding:.55em 1.1em;border:1px solid var(--line);border-radius:99px;font-size:.86rem}.faq-nav .side-card{display:none}}
+
+/* ---------- 404 ---------- */
+.nf{position:relative;isolation:isolate;overflow:hidden;display:grid;align-items:center;min-height:calc(100svh - var(--hdr));color:#fff;background:var(--ink)}
+.nf::before{content:"404";position:absolute;right:-2vw;bottom:-7vw;z-index:-1;font-family:var(--display);font-size:min(46vw,640px);line-height:1;color:rgba(232,207,147,.07)}
+.nf-media{position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 60% at 72% 28%,rgba(232,207,147,.16),transparent 62%),radial-gradient(90% 90% at 12% 90%,#14223f,var(--ink))}
+.nf-in{display:grid;gap:1.3rem;max-width:780px;padding-block:80px}
+
+/* ---------- footer ---------- */
+.site-footer{padding-top:clamp(60px,7vw,116px);color:#d9dde7;background:var(--ink);border-top:1px solid rgba(255,255,255,.08)}
+.foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,60px);padding-bottom:clamp(40px,5vw,76px)}
+.foot-brand p{max-width:36ch;margin-block:1.3rem;font-size:.92rem;color:rgba(255,255,255,.66)}
+.foot-contact{display:grid;gap:11px;font-size:.9rem}
+.foot-contact li{display:flex;align-items:center;gap:.75em}
+.foot-contact .i{width:18px;height:18px;color:var(--gold-2)}
+.foot-contact a{transition:color .3s}
+.foot-contact a:hover{color:var(--gold-2)}
+.foot-h{margin-bottom:1.2rem;font-family:var(--sans);font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2)}
+.site-footer nav ul{display:grid;gap:.65rem}
+.site-footer nav a{font-size:.92rem;color:rgba(255,255,255,.72);transition:color .3s,padding .4s var(--ease)}
+.site-footer nav a:hover{color:#fff;padding-left:6px}
+.foot-legal{display:grid;gap:22px;padding-block:30px 44px;border-top:1px solid rgba(255,255,255,.1)}
+.foot-disclosure{max-width:112ch;font-size:.78rem;line-height:1.7;color:rgba(255,255,255,.55)}
+.foot-disclosure a{text-decoration:underline;text-underline-offset:.2em;color:rgba(255,255,255,.75)}
+.foot-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 30px;font-size:.8rem;color:rgba(255,255,255,.55)}
+.foot-bottom ul{display:flex;flex-wrap:wrap;gap:6px 22px}
+.foot-bottom a{transition:color .3s}
+.foot-bottom a:hover{color:#fff}
+.foot-credit a{text-decoration:underline;text-underline-offset:.2em}
+@media(max-width:1000px){.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-brand{grid-column:1/-1}}
+
+/* ---------- custom cursor (fine pointers only) ---------- */
+.cursor{position:fixed;left:0;top:0;z-index:300;display:grid;place-items:center;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--gold-2);opacity:0;pointer-events:none;will-change:transform;transition:width .5s var(--ease),height .5s var(--ease),margin .5s var(--ease),background .4s,opacity .4s,border-color .4s}
+.cursor.is-on{opacity:1}
+.cursor span{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#1a1405;opacity:0;transition:opacity .3s}
+.cursor.is-label{width:92px;height:92px;margin:-46px 0 0 -46px}
+.cursor.is-label span{opacity:1}
+.cursor.is-link{width:46px;height:46px;margin:-23px 0 0 -23px;background:rgba(232,207,147,.18);border:1px solid var(--gold-2)}
+@media(hover:none),(max-width:999px){.cursor{display:none}}
+
+/* ---------- page transition curtain ---------- */
+.curtain{position:fixed;inset:0;z-index:500;display:grid;place-items:center;background:var(--ink);color:var(--gold-2);pointer-events:none;transform:translateY(102%);will-change:transform}
+.curtain svg{width:56px;height:56px;opacity:0;transition:opacity .3s}
+.curtain.is-on svg{opacity:1}
+
+/* ---------- misc ---------- */
+.page-home main > .section:first-of-type{scroll-margin-top:0}
+@media print{.site-header,.tracker,.progress-top,.mbar,.cursor,.curtain{display:none!important}.js [data-reveal],.js [data-stagger] > *,.js [data-split],.js [data-split] .wi{opacity:1!important;transform:none!important}}
+
+/* inline note in articles */
+.note{padding:1.1em 1.4em;border-left:3px solid var(--gold);border-radius:0 var(--r) var(--r) 0;background:rgba(200,164,92,.12);font-size:.95rem;color:#2b3449}
+
+/* arriving from a page transition: an ink curtain lifts away (no flash, no JS needed) */
+.is-arriving body::before{content:"";position:fixed;inset:0;z-index:500;background:var(--ink);pointer-events:none;animation:arrive .9s var(--ease-io) .08s both}
+@keyframes arrive{to{transform:translateY(-102%)}}
